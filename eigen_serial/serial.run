@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -A phys-743
+#SBATCH -q phys-743
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -c 1
+
+ml purge; ml intel ; ml intel-oneapi-mpi; ml intel-oneapi-vtune; ml hdf5/1.12.2-mpi
+echo "n=$n"
+./eigen_main $n

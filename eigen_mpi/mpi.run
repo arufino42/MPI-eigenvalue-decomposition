@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -A phys-743
+#SBATCH -q parallel
+
+
+echo $SLURM_JOB_ID
+module purge               # optional, makes environment clean
+ml purge; ml intel ; ml intel-oneapi-mpi; ml intel-oneapi-vtune; ml hdf5/1.12.2-mpi
+echo "something"
+echo $LD_LIBRARY_PATH
+srun ./eigen_mpi_main $n

@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -t 20
+#SBATCH -A phys-743
+#SBATCH -q phys-743
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -c 1
+
+srun vtune -collect hotspots -call-stack-mode all -r ../profiling/run_$SLURM_JOB_ID -- ./eigen_main 1600
